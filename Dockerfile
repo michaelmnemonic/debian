@@ -5,4 +5,6 @@ RUN apt-get update  -y && \
         build-essential   \
         debhelper         \
         devscripts        \
-        git               
+        git               \
+        rustc             \
+        cargo
