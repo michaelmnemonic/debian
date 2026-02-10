@@ -37,7 +37,7 @@ jobs:
             - name: Pre-build dev container image
               uses: devcontainers/ci@v0.3
               with:
-                  imageName: ghcr.io/michaelmnemonic/devcontainer
-                  cacheFrom: ghcr.io/michaelmnemonic/devcontainer
+                  imageName: ghcr.io/michaelmnemonic/niri-devcontainer
+                  cacheFrom: ghcr.io/michaelmnemonic/niri-devcontainer
                   push: always
                   platform: linux/amd64,linux/arm64
