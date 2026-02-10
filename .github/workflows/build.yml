@@ -15,11 +15,14 @@ jobs:
               with:
                   submodules: true
 
-            - name: Build Docker image
-              run: docker build -t niri-build ./devcontainer
-
-            - name: Build niri
-              run: docker run --rm -v ${{ github.workspace }}:/workspace -w /workspace/niri niri-build cargo deb
+            - name: Build niri deb
+              uses: devcontainers/ci@v0.3
+              with:
+                  cacheFrom: ghcr.io/michaelmnemonic/niri-devcontainer
+                  push: never
+                  runCmd: |
+                    cd ${{ github.workspace }}/niri/
+                    cargo deb
 
             - name: Upload artifact
               uses: actions/upload-artifact@v6
